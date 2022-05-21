@@ -1,218 +1,161 @@
-<!DOCTYPE html>
-<html lang=en>
-
-<head>
-  <meta charset=utf-8>
-  <meta http-equiv=X-UA-Compatible content="IE=edge">
-  <link rel=icon href=/favicon.ico>
-  <title>Yiu's Villa Supplier</title>
-  <meta name=robots content="index, follow">
-  <meta http-equiv=Content-Type content="text/html; charset=utf-8">
-  <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <meta property=og:title content="Yiu's Villa | China Supplier">
-  <meta property=og:image content=/cover.png>
-  <style>
-    .page-loader {
-      position: fixed;
-      z-index: 9999999999999999;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgb(255, 255, 255);
-    }
-
-    .marker {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .marker .dot {
-      position: absolute;
-      height: 60px;
-      width: 60px;
-      z-index: 2;
-      opacity: 0;
-      border-radius: 15px;
-      animation: pulse__loader 2s ease-out;
-      background: rgb(85, 125, 255, 0.6);
-    }
-
-    @-webkit-keyframes pulse__loader {
-      0% {
-        -webkit-transform: scale(0);
-        opacity: 1;
+<!DOCTYPE html><html lang=en><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><link rel=icon href=/favicon.ico><title>Yiu's Villa Supplier</title><meta name=robots content="index, follow"><meta http-equiv=Content-Type content="text/html; charset=utf-8"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta property=og:title content="Yiu's Villa | China Supplier"><meta property=og:image content=/cover.png><style>.page-loader {
+        position: fixed;
+        z-index: 9999999999999999;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgb(255, 255, 255);
       }
 
-      100% {
-        -webkit-transform: scale(2);
+      .marker {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .marker .dot {
+        position: absolute;
+        height: 60px;
+        width: 60px;
+        z-index: 2;
         opacity: 0;
-      }
-    }
-
-    @-webkit-keyframes grow__loader {
-      0% {
-        -webkit-transform: scale(1);
+        border-radius: 15px;
+        animation: pulse__loader 2s ease-out;
+        background: rgb(85, 125, 255, 0.6);
       }
 
-      50% {
-        -webkit-transform: scale(1.1);
+      @-webkit-keyframes pulse__loader {
+        0% {
+          -webkit-transform: scale(0);
+          opacity: 1;
+        }
+
+        100% {
+          -webkit-transform: scale(2);
+          opacity: 0;
+        }
+      }
+      @-webkit-keyframes grow__loader {
+        0% {
+          -webkit-transform: scale(1);
+        }
+        50% {
+          -webkit-transform: scale(1.1);
+        }
+  
+        100% {
+          -webkit-transform: scale(1);
+        }
+      }
+      @font-face {
+        font-family: Roboto;
+        src: url("./fonts/Roboto.ttf");
       }
 
-      100% {
-        -webkit-transform: scale(1);
+      * {
+        font-family: "Roboto" !important;
       }
-    }
 
-    @font-face {
-      font-family: Roboto;
-      src: url("./fonts/Roboto.ttf");
-    }
+      .cool-lightbox .cool-lightbox__slide img {
+        width: unset !important;
+        box-shadow: none !important;
+      }
 
-    * {
-      font-family: "Roboto" !important;
-    }
+      .go-to-app {
+        outline: none !important;
+        align-items: center;
+        justify-content: center;
+        display: flex !important;
+        padding: 10px !important;
+      }
 
-    .cool-lightbox .cool-lightbox__slide img {
-      width: unset !important;
-      box-shadow: none !important;
-    }
+      .go-to-app svg {
+        top: -2px !important;
+      }
 
-    .go-to-app {
-      outline: none !important;
-      align-items: center;
-      justify-content: center;
-      display: flex !important;
-      padding: 10px !important;
-    }
+      .cool-lightbox-toolbar {
+        border-radius: 100% !important;
+        overflow: hidden;
+      }
 
-    .go-to-app svg {
-      top: -2px !important;
-    }
+      .cool-lightbox {
+        background: rgb(0, 0, 0, 0.2) !important;
+        backdrop-filter: blur(8px);
+      }
 
-    .cool-lightbox-toolbar {
-      border-radius: 100% !important;
-      overflow: hidden;
-    }
+      .loader_ {
+        z-index: 1000;
+        animation: grow__loader 2s ease-in ;
+        animation-delay: 1.3s !important;
+      }
+      .page-loader.hidden {
+        animation: fadeOut 1s;
+        animation-fill-mode: forwards;
+      }
+      .page-loader.hidden.display_none {
+        display: none !important;
+      }
 
-    .cool-lightbox {
-      background: rgb(0, 0, 0, 0.2) !important;
-      backdrop-filter: blur(8px);
-    }
-
-    .loader_ {
-      z-index: 1000;
-      animation: grow__loader 2s ease-in;
-      animation-delay: 1.3s !important;
-    }
-
-    .page-loader.hidden {
-      animation: fadeOut 1s;
-      animation-fill-mode: forwards;
-    }
-
-    .page-loader.hidden.display_none {
-      display: none !important;
-    }
-
-    /**
+  /**
  * ==============================================
  * Dot Flashing
  * ==============================================
  */
-    .dot-flashing {
-      position: relative;
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
-      background-color: #6951A4;
-      color: #6951A4;
-      animation: dotFlashing 1s infinite linear alternate;
-      animation-delay: .5s;
-    }
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6951A4;
+  color: #6951A4;
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
 
-    .dot-flashing::before,
-    .dot-flashing::after {
-      content: '';
-      display: inline-block;
-      position: absolute;
-      top: 0;
-    }
+.dot-flashing::before, .dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
 
-    .dot-flashing::before {
-      left: -15px;
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
-      background-color: #6951A4;
-      color: #6951A4;
-      animation: dotFlashing 1s infinite alternate;
-      animation-delay: 0s;
-    }
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6951A4;
+  color: #6951A4;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 0s;
+}
 
-    .dot-flashing::after {
-      left: 15px;
-      width: 10px;
-      height: 10px;
-      border-radius: 5px;
-      background-color: #6951A4;
-      color: #6951A4;
-      animation: dotFlashing 1s infinite alternate;
-      animation-delay: 1s;
-    }
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #6951A4;
+  color: #6951A4;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 1s;
+}
 
-    @keyframes dotFlashing {
-      0% {
-        background-color: #6951A4;
-      }
-
-      50%,
-      100% {
-        background-color: #ebe6ff;
-      }
-    }
-
-    @keyframes fadeOut {
-      100% {
-        opacity: 0;
-        display: none;
-      }
-    }
-  </style>
-  <link href=/css/chunk-9147a2b8.62bfcf16.css rel=prefetch>
-  <link href=/css/chunk-b30dff52.2f10fec3.css rel=prefetch>
-  <link href=/js/chunk-741f5406.a9e3f32f.js rel=prefetch>
-  <link href=/js/chunk-9147a2b8.67fbda83.js rel=prefetch>
-  <link href=/js/chunk-b30dff52.f6a86671.js rel=prefetch>
-  <link href=/css/app.5038c060.css rel=preload as=style>
-  <link href=/css/chunk-vendors.35af6527.css rel=preload as=style>
-  <link href=/js/app.07b9d843.js rel=preload as=script>
-  <link href=/js/chunk-vendors.9de10ae7.js rel=preload as=script>
-  <link href=/css/chunk-vendors.35af6527.css rel=stylesheet>
-  <link href=/css/app.5038c060.css rel=stylesheet>
-</head>
-
-<body><noscript><strong>We're sorry but OrderView doesn't work properly without JavaScript enabled. Please enable it to
-      continue.</strong></noscript>
-  <div class=page-loader>
-    <div style="display: flex;flex-direction:column; align-items:center;"><img src=/logo.png class=""
-        style="width: 180px;" alt="">
-      <div class=snippet data-title=.dot-flashing>
-        <div class=stage>
-          <div class=dot-flashing></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div id=app>
-    <app>
-  </div>
-  <script src=/js/chunk-vendors.9de10ae7.js></script>
-  <script src=/js/app.07b9d843.js></script>
-</body>
-
-</html>
+@keyframes dotFlashing {
+  0% {
+    background-color: #6951A4;
+  }
+  50%,
+  100% {
+    background-color: #ebe6ff;
+  }
+}
+      @keyframes fadeOut {
+        100% {
+          opacity: 0;
+          display: none;
+        }
+      }</style><link href=/css/chunk-9147a2b8.62bfcf16.css rel=prefetch><link href=/css/chunk-b30dff52.2f10fec3.css rel=prefetch><link href=/js/chunk-741f5406.a9e3f32f.js rel=prefetch><link href=/js/chunk-9147a2b8.874818b6.js rel=prefetch><link href=/js/chunk-b30dff52.f6a86671.js rel=prefetch><link href=/css/app.5038c060.css rel=preload as=style><link href=/css/chunk-vendors.35af6527.css rel=preload as=style><link href=/js/app.e69c8866.js rel=preload as=script><link href=/js/chunk-vendors.9de10ae7.js rel=preload as=script><link href=/css/chunk-vendors.35af6527.css rel=stylesheet><link href=/css/app.5038c060.css rel=stylesheet></head><body><noscript><strong>We're sorry but OrderView doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div class=page-loader><div style="display: flex;flex-direction:column; align-items:center;"><img src=/logo.png class="" style="width: 180px;" alt=""><div class=snippet data-title=.dot-flashing><div class=stage><div class=dot-flashing></div></div></div></div></div><div id=app><app></div><script src=/js/chunk-vendors.9de10ae7.js></script><script src=/js/app.e69c8866.js></script></body></html>
