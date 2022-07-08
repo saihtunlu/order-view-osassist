@@ -158,4 +158,16 @@
           opacity: 0;
           display: none;
         }
-      }</style><link href=/css/chunk-9147a2b8.62bfcf16.css rel=prefetch><link href=/css/chunk-b30dff52.2f10fec3.css rel=prefetch><link href=/js/chunk-741f5406.a9e3f32f.js rel=prefetch><link href=/js/chunk-9147a2b8.94c52fb1.js rel=prefetch><link href=/js/chunk-b30dff52.f6a86671.js rel=prefetch><link href=/css/app.5038c060.css rel=preload as=style><link href=/css/chunk-vendors.35af6527.css rel=preload as=style><link href=/js/app.5ee538ee.js rel=preload as=script><link href=/js/chunk-vendors.9de10ae7.js rel=preload as=script><link href=/css/chunk-vendors.35af6527.css rel=stylesheet><link href=/css/app.5038c060.css rel=stylesheet></head><body><noscript><strong>We're sorry but OrderView doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div class=page-loader><div style="display: flex;flex-direction:column; align-items:center;"><img src=/logo.png class="" style="width: 180px;" alt=""><div class=snippet data-title=.dot-flashing><div class=stage><div class=dot-flashing></div></div></div></div></div><div id=app><app></div><script src=/js/chunk-vendors.9de10ae7.js></script><script src=/js/app.5ee538ee.js></script></body></html>
+      }</style><link href=/css/chunk-9147a2b8.62bfcf16.css rel=prefetch><link href=/css/chunk-b30dff52.8a0a841c.css rel=prefetch><link href=/js/chunk-741f5406.a9e3f32f.js rel=prefetch><link href=/js/chunk-9147a2b8.4eee1a73.js rel=prefetch><link href=/js/chunk-b30dff52.b5dbf87c.js rel=prefetch><link href=/css/app.feb58726.css rel=preload as=style><link href=/css/chunk-vendors.35af6527.css rel=preload as=style><link href=/js/app.d5634de0.js rel=preload as=script><link href=/js/chunk-vendors.9de10ae7.js rel=preload as=script><link href=/css/chunk-vendors.35af6527.css rel=stylesheet><link href=/css/app.feb58726.css rel=stylesheet></head><body><noscript><strong>We're sorry but OrderView doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div class=page-loader><div style="display: flex;flex-direction:column; align-items:center;"><img src=/light_logo.png class=loading_img style="width: 180px;" alt=""><div class=snippet data-title=.dot-flashing><div class=stage><div class=dot-flashing></div></div></div></div></div><div id=app><app></div><script src=/js/chunk-vendors.9de10ae7.js></script><script src=/js/app.d5634de0.js></script></body><script>const theme = localStorage.getItem("theme");
+    const loader = document.querySelector(".page-loader");
+    const loadingImg = document.querySelector(".loading_img");
+
+    var isDark = false;
+    if (theme) {
+      isDark = theme == "dark";
+    }
+    loader.style.background = isDark ? "rgb(50,50,50)" : "rgb(255,255,255)";
+    loadingImg.src=isDark ?"/dark_logo.png":"/light_logo.png"
+      // window.addEventListener("load", function() {
+  
+      // });</script></html>
